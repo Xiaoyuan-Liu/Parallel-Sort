@@ -6,16 +6,16 @@ public class QuickSort {
 		array[p2] = tmp;
 	}
 	private static int partition(int[] array, int p, int q) {
-		int pivot = array[p];
-		int i = p + 1;
-		for(int j = p + 1;j <= q;j++) {
+		int pivot = array[q];
+		int i = p - 1;
+		for(int j = p; j <= q - 1;j++) {
 			if(array[j]<pivot) {
-				Swap(array,j,i);
 				i++;
+				Swap(array,j,i);
 			}
 		}
-		Swap(array,p,i-1);
-		return i-1;
+		Swap(array,q,i + 1);
+		return i + 1;
 	}
 	private static void quickSort(int [] array, int p, int q) {
 		if(p < q) {
