@@ -50,6 +50,7 @@ public class Manager {
 	}
 	public static void main(String[] args) {
 		Manager m1 = new Manager();
+		/*
 		MergeSort.msort(m1.getArray(), 0, m1.getSize()-1);
 		
 		Manager m2 = new Manager();
@@ -64,6 +65,10 @@ public class Manager {
 			System.out.println("Enum Success");
 		else
 			System.out.println("Enum fuli");
-		
+		*/
+		//并行归并
+		//PMergeSort.pmsort(m1.getArray(), 0, m1.getSize()-1);
+		//并行枚举
+		PEnumSort.pesort(m1.getArray(),0,m1.getSize()-1);
 	}
 }
