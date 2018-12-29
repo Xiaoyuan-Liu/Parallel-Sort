@@ -48,7 +48,7 @@ public class PMergeSort {
 		//System.out.println(a);
 		//MergeSort.msort(a.toArray(new Integer[0]), 0, 15);
 		//System.out.println(a);
-		MergeSort.msort(arrayFlags, 0, 15);
+		MergeSort.msort(arrayFlags, 0, 15,false);
 		//for(int i = 0; i < 16;i++)
 		//System.out.println(arrayFlags[i]);
 		//全局交换
@@ -163,7 +163,7 @@ public class PMergeSort {
 		//System.out.println("total:"+(a0.size()+a1.size()+a2.size()+a3.size()));
 		//int line = 0;
 		try {
-			FileWriter writer = new FileWriter("pmsort.txt",true);
+			FileWriter writer = new FileWriter("order4(paralell merge sort).txt");
 			for(int i = 0; i < a0.size();i++) {
 				writer.write(res0[i]+"\r\n");
 				//line++;

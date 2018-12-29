@@ -34,6 +34,17 @@ public class MergeSort implements Runnable{
 		mergeSort(array, p, r);
 		mergeSort(array,r+1,q);
 		merge(array, p, r, q);
+		/*
+		System.err.println(p+" "+q);
+		try {
+			FileWriter writer = new FileWriter("msort.txt");
+			for(int i = p; i <= q;i++)
+				writer.write(array[i]+"\r\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		
 	}
 	private static void merge(int[] array, int p, int r, int q) {
@@ -70,10 +81,12 @@ public class MergeSort implements Runnable{
 			array[p+i] = brrby[i];
 		}
 	}
-	public static void msort(int[] array, int p, int q) {
+	public static void msort(int[] array, int p, int q,boolean b) {
 		mergeSort(array, p, q);
+		if(b) {
+		//System.err.println(p+" "+q);
 		try {
-			FileWriter writer = new FileWriter("msort.txt");
+			FileWriter writer = new FileWriter("order3(merge sort).txt");
 			for(int i = p; i <= q;i++)
 				writer.write(array[i]+"\r\n");
 			writer.close();
@@ -81,6 +94,8 @@ public class MergeSort implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}
+		
 	}
 	private static void mergeSort(Integer[] array, int p, int q) {
 		if(p>=q)return;
@@ -133,7 +148,7 @@ public class MergeSort implements Runnable{
 	
 	public void msort() {
 		mergeSort(array, begin, end);
-		
+
 	}
 	public void integermsort() {
 		mergeSort(integerArray,begin,end);

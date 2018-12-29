@@ -37,7 +37,7 @@ public class PEnumSort extends EnumSort{
             e.printStackTrace();
         }
 		try {
-			FileWriter writer = new FileWriter("pesort.txt");
+			FileWriter writer = new FileWriter("order6(paralell enum sort).txt");
 			//int Line = 0;
 			for(int i = Begin; i <= End; i++) {
 				writer.write(Brrby[i]+"\r\n");

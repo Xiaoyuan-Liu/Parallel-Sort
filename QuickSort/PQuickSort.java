@@ -26,7 +26,7 @@ public class PQuickSort {
             e.printStackTrace();
         }
 		try {
-			FileWriter writer = new FileWriter("pqsort.txt");
+			FileWriter writer = new FileWriter("order2(paralell quick sort).txt");
 			for(int i = Begin; i <= End;i++)
 				writer.write(Array[i]+"\r\n");
 			writer.close();

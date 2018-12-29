@@ -16,8 +16,9 @@ public class EnumSort {
 		}
 		for(int i = 0; i <= q;i++)
 			array[i]=brrby[i];
+		//System.out.println(p+" "+q);
 		try {
-			FileWriter writer = new FileWriter("esort.txt");
+			FileWriter writer = new FileWriter("order5(enum sort).txt");
 			for(int i = p; i <= q;i++)
 				writer.write(array[i]+"\r\n");
 			writer.close();

@@ -40,8 +40,9 @@ public class QuickSort implements Runnable{
 	}
 	public static void qsort(int[] array, int p, int q) {
 		quickSort(array,p,q);
+		//System.err.println(p+" "+q);
 		try {
-			FileWriter writer = new FileWriter("qsort.txt");
+			FileWriter writer = new FileWriter("order1(quick sort).txt");
 			for(int i = p; i <= q;i++)
 				writer.write(array[i]+"\r\n");
 			writer.close();
@@ -50,10 +51,13 @@ public class QuickSort implements Runnable{
 			e.printStackTrace();
 		}
 	}
+	public void pqsort(int[] array, int p, int q) {
+		quickSort(array,p,q);
+	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		qsort(array, begin, end);
+		pqsort(array, begin, end);
 		mergeSignal.countDown();
 	}
 }
