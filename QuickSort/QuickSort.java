@@ -1,11 +1,25 @@
 package QuickSort;
-public class QuickSort {
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+
+public class QuickSort implements Runnable{
+	int begin,  end;
+	private int[] array;
+	CountDownLatch mergeSignal;
+	QuickSort(int[] array, int begin, int end, CountDownLatch mergeSignal){
+		this.array = array;
+		this.begin = begin;
+		this.end = end;
+		this.mergeSignal = mergeSignal;
+	}
 	private static void Swap(int[] array, int p1,int p2) {
 		int tmp = array[p1];
 		array[p1] = array[p2];
 		array[p2] = tmp;
 	}
-	private static int partition(int[] array, int p, int q) {
+	public static int partition(int[] array, int p, int q) {
 		int pivot = array[q];
 		int i = p - 1;
 		for(int j = p; j <= q - 1;j++) {
@@ -26,5 +40,20 @@ public class QuickSort {
 	}
 	public static void qsort(int[] array, int p, int q) {
 		quickSort(array,p,q);
+		try {
+			FileWriter writer = new FileWriter("qsort.txt");
+			for(int i = p; i <= q;i++)
+				writer.write(array[i]+"\r\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		qsort(array, begin, end);
+		mergeSignal.countDown();
 	}
 }

@@ -1,16 +1,19 @@
 package EnumSort;
 
+import java.util.concurrent.CountDownLatch;
+
 public class PEnumPos implements Runnable{
 	private int begin, end, pos;
 	private int[] array;
 	private int[] brrby;
-	PEnumPos(int[] array,int[] brrby,int begin, int end, int pos){
+	CountDownLatch mergeSignal;
+	PEnumPos(int[] array,int[] brrby,int begin, int end, int pos,CountDownLatch mergeSignal){
 		this.begin = begin;
 		this.end = end;
 		this.pos = pos;
 		this.array = array;
 		this.brrby = brrby;
-		
+		this.mergeSignal = mergeSignal;
 	}
 	@Override
 	public void run() {
@@ -21,6 +24,8 @@ public class PEnumPos implements Runnable{
 				rank++;
 		}
 		brrby[rank] = array[pos];
+		mergeSignal.countDown();
+		//System.out.println(brrby[rank]);
 	}
 	
 

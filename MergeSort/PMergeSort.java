@@ -28,13 +28,13 @@ public class PMergeSort {
 		thread1.start();
 		thread2.start();
 		thread3.start();
-		System.out.println(0+" "+length0+" "+(length0+1)+" "+(2*length0+1)+" "+(2*length0+2)+" "+(3*length0+2)+" "+(3*length0+3)+" "+29999);
+		//System.out.println(0+" "+length0+" "+(length0+1)+" "+(2*length0+1)+" "+(2*length0+2)+" "+(3*length0+2)+" "+(3*length0+3)+" "+29999);
 		try {
             mergeSignal.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-		System.out.println("2222");
+		//System.out.println("2222");
 		ArrayList<Integer> a0 = new ArrayList();
 		ArrayList<Integer> a1 = new ArrayList();
 		ArrayList<Integer> a2 = new ArrayList();
@@ -45,12 +45,12 @@ public class PMergeSort {
 
 		//for(int i = 0 ; i < 29999;i++)
 		//	System.out.println(array[i]);
-		System.out.println(a);
+		//System.out.println(a);
 		//MergeSort.msort(a.toArray(new Integer[0]), 0, 15);
-		System.out.println(a);
+		//System.out.println(a);
 		MergeSort.msort(arrayFlags, 0, 15);
-		for(int i = 0; i < 16;i++)
-		System.out.println(arrayFlags[i]);
+		//for(int i = 0; i < 16;i++)
+		//System.out.println(arrayFlags[i]);
 		//全局交换
 		int i0 = 0;
 		int i1 = length0+1;
@@ -159,31 +159,31 @@ public class PMergeSort {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-		System.out.println("2222");
-		System.out.println("total:"+(a0.size()+a1.size()+a2.size()+a3.size()));
-		int line = 0;
+		//System.out.println("2222");
+		//System.out.println("total:"+(a0.size()+a1.size()+a2.size()+a3.size()));
+		//int line = 0;
 		try {
-			FileWriter writer = new FileWriter("1.txt",true);
+			FileWriter writer = new FileWriter("pmsort.txt",true);
 			for(int i = 0; i < a0.size();i++) {
 				writer.write(res0[i]+"\r\n");
-				line++;
+				//line++;
 				//System.out.println(((Integer)a0.get(i)).intValue());
 				
 			}
 				
 			for(int i = 0; i < a1.size();i++){
 				writer.write(res1[i]+"\r\n");
-				line++;
+				//line++;
 				//System.out.println(((Integer)a1.get(i)).intValue());
 			}
 			for(int i = 0; i < a2.size();i++){
 				writer.write(res2[i]+"\r\n");
-				line++;
+				//line++;
 				//System.out.println(((Integer)a2.get(i)).intValue());
 			}
 			for(int i = 0; i < a3.size();i++){
 				writer.write(res3[i]+"\r\n");
-				line++;
+				//line++;
 				//System.out.println(((Integer)a3.get(i)).intValue());
 			}
 			writer.close();
@@ -191,7 +191,7 @@ public class PMergeSort {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Line:"+line);
+		//System.out.println("Line:"+line);
 		
 	}
 	

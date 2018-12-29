@@ -43,32 +43,61 @@ public class Manager {
 		String[]sarray = str.split(" ");
 		for(int i = 0; i < sarray.length;i++) {
 			array[i] = Integer.parseInt(sarray[i]);
-			System.out.println(sarray[i]);
+			//System.out.println(sarray[i]);
 		}
 		actualSize = sarray.length;
-		System.out.println("实际大小:"+actualSize);
+		//System.out.println("实际大小:"+actualSize);
 	}
 	public static void main(String[] args) {
-		Manager m1 = new Manager();
-		/*
-		MergeSort.msort(m1.getArray(), 0, m1.getSize()-1);
+		System.out.println("排序开始！\n");
 		
-		Manager m2 = new Manager();
-		QuickSort.qsort(m2.getArray(), 0, m2.getSize()-1);
-		Manager m3 = new Manager();
-		EnumSort.esort(m3.getArray(), 0, m3.getSize()-1);
-		if(m1.test())
-			System.out.println("Merge Success");
-		if(m2.test())
-			System.out.println("Quick Success");
-		if(m3.test())
-			System.out.println("Enum Success");
-		else
-			System.out.println("Enum fuli");
-		*/
+		//串行快排
+		Manager qsortManager = new Manager();
+		long qsprtStartTime=System.currentTimeMillis();
+		QuickSort.qsort(qsortManager.getArray(), 0, qsortManager.getSize()-1);
+		long qsortEndTime=System.currentTimeMillis();
+		//System.out.println("串行快排用时： "+(qsortEndTime-qsprtStartTime)+"ms\n");
+		System.out.println("串行快速排序完成！\n");
+		
+		//并行快排
+		Manager pqsortManager = new Manager();
+		long pqsortStartTime=System.currentTimeMillis();
+		PQuickSort.pqsort(pqsortManager.getArray(), 0, pqsortManager.getSize()-1);
+		long pqsortEndTime=System.currentTimeMillis();
+		//System.out.println("并行快排用时： "+(pqsortEndTime-pqsortStartTime)+"ms\n");	
+		System.out.println("并行快速排序完成！\n");
+		
+		//串行归并
+		Manager msortManager = new Manager();
+		long msortStartTime=System.currentTimeMillis();
+		MergeSort.msort(msortManager.getArray(), 0, msortManager.getSize()-1);
+		long msortEndTime=System.currentTimeMillis();
+		//System.out.println("串行归并用时： "+(msortEndTime-msortStartTime)+"ms\n");
+		System.out.println("串行归并排序完成！\n");
+		
 		//并行归并
-		//PMergeSort.pmsort(m1.getArray(), 0, m1.getSize()-1);
+		Manager pmsortManager = new Manager();
+		long pmsortStartTime=System.currentTimeMillis();
+		PMergeSort.pmsort(pmsortManager.getArray(), 0, pmsortManager.getSize()-1);
+		long pmsortEndTime=System.currentTimeMillis();
+		//System.out.println("并行归并用时： "+(pmsortEndTime-pmsortStartTime)+"ms\n");
+		System.out.println("并行归并排序完成！\n");
+		
+		//串行枚举
+		Manager esortManager = new Manager();
+		long esortStartTime=System.currentTimeMillis();
+		EnumSort.esort(esortManager.getArray(), 0, esortManager.getSize()-1);
+		long esortEndTime=System.currentTimeMillis();
+		//System.out.println("串行枚举用时： "+(esortEndTime-esortStartTime)+"ms\n");
+		System.out.println("串行枚举排序完成！\n");
+		
 		//并行枚举
-		PEnumSort.pesort(m1.getArray(),0,m1.getSize()-1);
+		Manager pesortManager = new Manager();
+		long pesortStartTime=System.currentTimeMillis();
+		PEnumSort.pesort(pesortManager.getArray(),0,pesortManager.getSize()-1);
+		long pesortEndTime=System.currentTimeMillis();
+		//System.out.println("并行枚举用时： "+(pesortEndTime-pesortStartTime)+"ms\n");
+		System.out.println("并行枚举排序完成！\n");
+		System.out.println("排序结束！");
 	}
 }

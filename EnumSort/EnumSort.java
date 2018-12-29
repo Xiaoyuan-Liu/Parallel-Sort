@@ -1,4 +1,8 @@
 package EnumSort;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class EnumSort {
 	public static void esort(int[] array,int p, int q) {
 		int[] brrby = new int[q - p + 1];
@@ -12,5 +16,14 @@ public class EnumSort {
 		}
 		for(int i = 0; i <= q;i++)
 			array[i]=brrby[i];
+		try {
+			FileWriter writer = new FileWriter("esort.txt");
+			for(int i = p; i <= q;i++)
+				writer.write(array[i]+"\r\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package MergeSort;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 public class MergeSort implements Runnable{
@@ -70,6 +72,15 @@ public class MergeSort implements Runnable{
 	}
 	public static void msort(int[] array, int p, int q) {
 		mergeSort(array, p, q);
+		try {
+			FileWriter writer = new FileWriter("msort.txt");
+			for(int i = p; i <= q;i++)
+				writer.write(array[i]+"\r\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private static void mergeSort(Integer[] array, int p, int q) {
 		if(p>=q)return;
@@ -115,12 +126,14 @@ public class MergeSort implements Runnable{
 	}
 	public static void msort(Integer[] array, int p, int q) {
 		mergeSort(array, p, q);
+		
 	}
 	
 	
 	
 	public void msort() {
 		mergeSort(array, begin, end);
+		
 	}
 	public void integermsort() {
 		mergeSort(integerArray,begin,end);
@@ -132,7 +145,7 @@ public class MergeSort implements Runnable{
 			integermsort();
 		else
 			msort();
-		System.out.println("1111");
+		//System.out.println("1111");
 		mergeSignal.countDown();
 	}
 }
