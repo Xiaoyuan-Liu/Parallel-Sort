@@ -1,0 +1,2 @@
+程序是一个Eclipse工程，入口在Manage类中，添加至Eclipse后，在Manage类右键，选择run进行执行即可。
+程序在命令行会有输出，显示程序目前的执行状态，参见result.png
